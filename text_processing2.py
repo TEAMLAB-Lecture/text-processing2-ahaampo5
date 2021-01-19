@@ -78,7 +78,6 @@ def to_camel_case(underscore_str):
     camelcase_str = camelcase_str.strip('_')
     a = camelcase_str.split('_')
     answer = ''
-    print(a)
     if len(a) == 1:
         return a[0]
     for i in range(len(a)):
