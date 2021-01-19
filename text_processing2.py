@@ -28,7 +28,6 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    
     digit_string = input_string[:] 
     number_list = ['zero', 'one', 'two', 'three', 'four', 'five', 'six',
      'seven', 'eight', 'nine']
@@ -36,10 +35,9 @@ def digits_to_words(input_string):
     for i in digit_string:
         if ord('0') <= ord(i) and ord('9') >= ord(i):
             answer += number_list[int(i)] + ' '
-
+    answer = answer.strip()
     return answer
-    
-    return digit_string
+
 
 
 """
