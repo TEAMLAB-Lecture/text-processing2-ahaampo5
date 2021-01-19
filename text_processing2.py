@@ -28,7 +28,17 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    digit_string = None
+    
+    digit_string = input_string[:] 
+    number_list = ['zero', 'one', 'two', 'three', 'four', 'five', 'six',
+     'seven', 'eight', 'nine']
+    answer = ''
+    for i in digit_string:
+        if ord('0') <= ord(i) and ord('9') >= ord(i):
+            answer += number_list[int(i)] + ' '
+
+    return answer
+    
     return digit_string
 
 
@@ -64,5 +74,21 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = None
-    return camelcase_str
+    camelcase_str = underscore_str[:]
+    camelcase_str = camelcase_str.strip('_')
+    a = camelcase_str.split('_')
+    answer = ''
+    print(a)
+    if len(a) == 1:
+        return a[0]
+    for i in range(len(a)):
+        if a[i] and not answer:
+            answer += a[i].lower()
+        elif a[i] and answer:
+            answer += a[i].title()
+    return answer
+
+if __name__ == '__main__':
+    print(digits_to_words('Zip Code: 19104'))
+    print(to_camel_case('to_camel_case'))
+    print(to_camel_case("alreadyCamel"))
